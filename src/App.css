@@ -24,10 +24,6 @@ main {
   min-height: 320px;
   border-radius: 10px;
   padding: 20px;
-  /* position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%) */
 }
 
 .box--title {
