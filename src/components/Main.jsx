@@ -51,6 +51,7 @@ export default function Main() {
     if(tenzies) {
       setTenzies(old => !old)
       setDie(allNewDice());
+      setDieValue();
     } else {
       setDie((oldDice) =>
       oldDice.map((die) => {
@@ -79,7 +80,7 @@ export default function Main() {
         current value between rolls.
       </p>
       <div className="box--dices">{dieElements}</div>
-      <button className="box--roll" onClick={roll}>
+      <button className={`box--roll ${tenzies ? "new" : ""}`} onClick={roll}>
         {tenzies ? "New Game" : "Roll"}
       </button>
     </main>
