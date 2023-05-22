@@ -4,7 +4,7 @@ import Die from "./Die";
 import ReactConfetti from "react-confetti";
 import { useWindowSize } from "react-use-size";
 
-export default function Main() {
+export default function Main(props) {
   const [die, setDie] = useState(allNewDice());
   const [dieValue, setDieValue] = useState();
   const [tenzies, setTenzies] = useState(false);
@@ -33,7 +33,6 @@ export default function Main() {
         return die.id === id ? { ...die, isHeld: (!dieValue || dieValue === die.value) } : die;
       })
     );
-    console.log(die)
   }
 
   const dieElements = die.map((die, index) => (
@@ -72,7 +71,8 @@ export default function Main() {
   }
 
   return (
-    <main className="box">
+    <main className={props.darkMode ? "dark" : ""}>
+      <div className="main--child">
       {tenzies && <ReactConfetti width = {width} height = {height}/>}
       <h3 className="box--title">Tenzies</h3>
       <p className="box--text">
@@ -83,6 +83,7 @@ export default function Main() {
       <button className={`box--roll ${tenzies ? "new" : ""}`} onClick={roll}>
         {tenzies ? "New Game" : "Roll"}
       </button>
+      </div>
     </main>
   );
 }
